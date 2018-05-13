@@ -42,7 +42,7 @@ public class ClassUtil {
                     String protocol = url.getProtocol();
                     if ("file".equals(protocol)) {
                         String packagePath = url.getPath().replace("%20", "");
-                        //TODO
+                        addClass(classSet, packagePath, packageName);
                     } else if ("jar".equals(protocol)) {
                         JarURLConnection jarURLConnection = (JarURLConnection) url.openConnection();
                         if (jarURLConnection != null) {
@@ -84,7 +84,7 @@ public class ClassUtil {
             if(file.isFile()){
                 String className=fileName.substring(0,fileName.lastIndexOf("."));
                 if(StringUtils.isNotEmpty(packageName)){
-                    className=packageName+"."+packageName;
+                    className=packageName+"."+className;
                 }
                 doAddClass(classSet,className);
             }else{

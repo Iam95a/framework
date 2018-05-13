@@ -19,14 +19,18 @@ public class BeanHelper {
         }
     }
 
-    public static Map<Class<?> ,Object> getBeanMap(){
+    public static Map<Class<?>, Object> getBeanMap() {
         return BEAN_MAP;
     }
 
-    public static <T> T getBean(Class<T> cls){
-        if(!BEAN_MAP.containsKey(cls)){
-            throw  new RuntimeException("can not get bean from beanmap");
+    public static <T> T getBean(Class<T> cls) {
+        if (!BEAN_MAP.containsKey(cls)) {
+            throw new RuntimeException("can not get bean from beanmap");
         }
         return (T) BEAN_MAP.get(cls);
+    }
+
+    public static void serBean(Class<?> cls, Object obj) {
+        BEAN_MAP.put(cls, obj);
     }
 }
