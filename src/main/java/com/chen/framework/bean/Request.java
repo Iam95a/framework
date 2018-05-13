@@ -6,6 +6,9 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class Request {
+
+    public static final String REQUEST_METHOD_GET="get";
+    public static final String REQUEST_METHOD_POST="post";
     /**
      * 请求方法  get/post
      */
